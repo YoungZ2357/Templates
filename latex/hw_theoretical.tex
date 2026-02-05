@@ -1,0 +1,94 @@
+% \documentclass[UTF8, 11pt]{ctexart} % 取消标注以激活中文支持
+\documentclass[11pt]{article} % unsite this to use English for the entire article
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb} % 数学符号支持
+\usepackage{algorithm} % 算法支持
+\usepackage{algpseudocode} % 算法伪代码支持
+\usepackage{enumerate} % 列表支持
+\usepackage{fancyhdr} % 页眉页脚支持
+\usepackage{hyperref} % 超链接支持
+\usepackage{graphicx} % 图片支持
+\usepackage{parskip} % 段落间距
+\usepackage{bookmark} 
+\usepackage{float} 
+
+% 设置页眉
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\lhead{CS????: Course Name}  % 课程名称
+\chead{Homework ??}          % 作业编号
+\rhead{SEASON YEAR}          % 学期
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+% 定义theorem环境
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+
+% 标题信息
+\title{CS????: Course Name\\Homework ??}  % 课程名和作业编号
+\author{YoungZ2357\\
+\small Student ID: ?????????\\  % 在这里填写你的学生ID
+\small Collaborators: No collaborators}
+\date{Due: Day, Date}
+
+
+\begin{document}
+\maketitle
+\section{Problem 1}
+This is the description about the problem.
+
+\subsection{Problem 1 Part 1}
+Insert an image:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{imgs/DOGE.jpg}
+    \caption{THIS IS ME!!!}
+    \label{fig:image}
+\end{figure}
+\subsection{Problem 1 Part 2}
+Proof example:
+\begin{align*}
+    T(n) & = \sum_{i=2}^{\frac{1}{2}n-1} log(n-2i) + T(0)                           \\
+         & = (log(n) + log(n-2) + log(n-4) + \cdots + log(2))                       \\
+         & = (log(2 \cdot 4 \cdot \cdots \cdot (n-4) \cdot (n-2) \cdot n))          \\
+         & = log(2^{\frac{n}{2}}(1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{n}{2})) \\
+         & = log(2^{\frac{n}{2}}(\frac{n}{2}!))                                     \\
+         & = \frac{n}{2}log(2) + log((\frac{2}{n})!)
+\end{align*}
+\section{Problem 2}
+Table example:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $i$ & $p(i)$ & OPT$(i)$                            & Comparison(use v.s. not use)   & interval $i$ included(local) \\
+        \hline
+        0   & N/A    & 0                                   & N/A                            & N/A                          \\
+        \hline
+        1   & 0      & OPT($p(1)$) + $v_1$ = 0 + 20 = 20   & OPT($p(1)$) + $v_1$ > OPT(1-1) & Yes                          \\
+        \hline
+        2   & 1      & OPT($p(2)$) + $v_2$ = 20 + 18 = 38  & OPT($p(2)$) + $v_2$ > OPT(1)   & Yes                          \\
+        \hline
+        3   & 0      & OPT($p(3)$) + $v_3$ = 0 + 70 = 70   & OPT($p(3)$) + $v_3$ > OPT(2)   & Yes                          \\
+        \hline
+        4   & 2      & OPT($4-1$) = 70                     & OPT($p(4)$) + $v_4$ < OPT(3)   & No                           \\
+        \hline
+        5   & 1      & OPT($p(5)$) + $v_5$ = 20 + 90 = 110 & OPT($p(5)$) + $v_5$ > OPT(4)   & Yes                          \\
+        \hline
+        6   & 4      & OPT($6-1$) = 110                    & OPT($p(6)$) + $v_6$ < OPT(5)   & No                           \\
+        \hline
+    \end{tabular}
+    \caption{I actually lost 8 points for this wrong answer}
+\end{table}
+
+\section{Problem 3}
+Describe with unordered list:
+\begin{itemize}
+    \item Point 1
+    \item Point 2
+    \item Point 3
+\end{itemize}
+\end{document}

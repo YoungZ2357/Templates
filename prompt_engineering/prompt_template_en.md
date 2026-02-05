@@ -39,6 +39,11 @@ You are a [role name] specializing in [domain].
 </tech_stack>
 
 <output_format>
+### Deliverables
+- [filename 1]
+- [filename 2]
+- [document 1]
+
 
 ### Code Style
 

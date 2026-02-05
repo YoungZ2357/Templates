@@ -25,7 +25,13 @@ You are a [role], specializing in [field].
 - **Other tools**: [fill in]
 </tech_stack>
 
+<output_format>
+### Deliverables
 
+
+### Code Style
+- [fill in]
+- [fill in]
 
 ### Response Structure
 
@@ -34,6 +40,11 @@ Organize responses in this order:
 1. Approach summary (1-2 sentences)
 2. Code implementation (complete, runnable code blocks)
 3. Key decision notes (only when non-obvious design choices are made)
+
+
+</output_format>
+
+
 
 
 <constraints>
