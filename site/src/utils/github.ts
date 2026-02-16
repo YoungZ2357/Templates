@@ -1,4 +1,4 @@
-import type { FileWithMeta } from '../types';
+import type { FileWithMeta, MetaJson } from '../types';
 import {
   ALLOWED_EXTENSIONS,
   IGNORED_NAMES,
@@ -53,12 +53,28 @@ async function fetchCategories(): Promise<string[]> {
 }
 
 /**
+ * Fetch meta.json for a category (best-effort, returns empty if not found).
+ */
+async function fetchMeta(category: string): Promise<MetaJson> {
+  try {
+    const res = await fetch(rawUrl(`${category}/meta.json`));
+    if (!res.ok) return {};
+    return (await res.json()) as MetaJson;
+  } catch {
+    return {};
+  }
+}
+
+/**
  * Fetch files in a category directory (non-recursive, skips sub-dirs like imgs/).
  */
 async function fetchCategoryFiles(category: string): Promise<FileWithMeta[]> {
-  const res = await fetch(contentsUrl(category));
-  if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-  const items: GHContentItem[] = await res.json();
+  const [contentsRes, meta] = await Promise.all([
+    fetch(contentsUrl(category)),
+    fetchMeta(category),
+  ]);
+  if (!contentsRes.ok) throw new Error(`GitHub API error: ${contentsRes.status}`);
+  const items: GHContentItem[] = await contentsRes.json();
 
   const files = items.filter(
     (item) =>
@@ -89,6 +105,7 @@ async function fetchCategoryFiles(category: string): Promise<FileWithMeta[]> {
         download_url: f.download_url ?? rawUrl(f.path),
         last_modified,
         category,
+        description: meta[f.name],
       } satisfies FileWithMeta;
     })
   );

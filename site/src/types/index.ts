@@ -14,7 +14,13 @@ export interface FileWithMeta {
   download_url: string;
   last_modified: string;
   category: string;
+  description?: string;
 }
+
+/**
+ * meta.json structure: filename → description string
+ */
+export type MetaJson = Record<string, string>;
 
 export interface CategoryGroup {
   name: string;

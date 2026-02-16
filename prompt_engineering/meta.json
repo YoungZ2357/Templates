@@ -1,0 +1,10 @@
+{
+    "prompt_template.md": "完整版 System Prompt 模板，包含角色设定、约束条件、输出格式等模块",
+    "prompt_template_en.md": "Full System Prompt template with role, constraints, and output format",
+    "prompt_simplified_en.md": "Simplified System Prompt template for quick use",
+    "idea_description.md": "项目构思引导 Prompt，帮助梳理项目目标与范围",
+    "idea_description_en.md": "Project ideation prompt for clarifying goals and scope",
+    "PRD_template_en.md": "Product Requirements Document template",
+    "dev_log_template.md": "开发日志模板，记录每日进展与问题",
+    "dev_log_template_en.md": "Development log template for tracking progress"
+}

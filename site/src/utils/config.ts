@@ -25,6 +25,7 @@ export const IGNORED_NAMES: string[] = [
   '.github',
   'node_modules',
   'dist',
+  'meta.json',
 ];
 
 /**

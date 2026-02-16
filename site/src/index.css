@@ -268,6 +268,12 @@ button {
   border-color: var(--c-selected-border);
 }
 
+.file-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
 .file-card__icon {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -285,6 +291,33 @@ button {
   color: #92400e;
 }
 
+.file-card__download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  color: var(--c-text-3);
+  transition: background var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.file-card__download svg {
+  width: 14px;
+  height: 14px;
+}
+
+.file-card__download:hover {
+  background: var(--c-accent-soft);
+  color: var(--c-text);
+}
+
+.file-card--selected .file-card__download:hover {
+  background: rgba(245, 158, 11, 0.15);
+  color: #92400e;
+}
+
 .file-card__name {
   font-size: 0.85rem;
   font-weight: 500;
@@ -298,6 +331,29 @@ button {
   font-size: 0.72rem;
   font-family: var(--font-mono);
   color: var(--c-text-3);
+}
+
+.file-card__divider {
+  display: block;
+  height: 1px;
+  background: var(--c-border);
+  margin: 0.3rem 0 0.2rem;
+}
+
+.file-card--selected .file-card__divider {
+  background: var(--c-selected-border);
+  opacity: 0.4;
+}
+
+.file-card__desc {
+  display: block;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--c-text-2);
+  max-height: 4.5em; /* ~1.5x the info area height, roughly 3 lines */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-border) transparent;
 }
 
 /* ============================================================
